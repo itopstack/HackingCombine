@@ -51,7 +51,7 @@ final class IntSubscriber: Subscriber {
 1. An optional `subscription` property is defined, which will be used to store the subscription
 1. The subscriber requests up to a max of `2` values when it receives the subscription, and it stores the subscription
 
-In `receive(_:)` this subscriber implementation is dynamically adjusting its demand. The returned demand will be the new demand _once the previous demand is fully satisfied_, so...
+In `receive(_:)` this subscriber implementation is dynamically adjusting its demand. The new demand will be the previous demand plus the demand returned from `receive(_:)`, so...
 
 3. The new `max` is `3` (original `max` of `2` + new `max` of `1`).
 1. `max` will remain `3` (previous `3` + `none`)
